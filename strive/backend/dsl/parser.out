@@ -1,0 +1,65 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    COMMA
+    ENDPOINT
+    INPUT
+    NONCONFLICT
+    OPERATION
+    OUTPUT
+    READ
+    TABLE
+    TYPE
+    WRITE
+
+Grammar
+
+Rule 0     S' -> system
+Rule 1     system -> SYSTEM LBRACE microservice RBRACE
+Rule 2     microservice -> MICROSERVICE ID LBRACE endpoint_table_operation_nonconflict RBRACE
+Rule 3     endpoint_table_operation_nonconflict -> endpoint_table_operation_nonconflict endpoint
+Rule 4     endpoint_table_operation_nonconflict -> endpoint_table_operation_nonconflict table
+Rule 5     endpoint_table_operation_nonconflict -> endpoint_table_operation_nonconflict operation
+Rule 6     endpoint_table_operation_nonconflict -> endpoint_table_operation_nonconflict non_conflict
+Rule 7     endpoint_table_operation_nonconflict -> endpoint_table_operation_nonconflict COLUMN LSQUARE column_list RSQUARE
+Rule 8     endpoint_table_operation_nonconflict -> endpoint_table_operation_nonconflict TRANSACTIONS COLON LBRACE transaction_list RBRACE
+Rule 9     endpoint_table_operation_nonconflict -> empty
+
+Terminals, with rules where they appear
+
+COLON                : 8
+COLUMN               : 7
+COMMA                : 
+ENDPOINT             : 
+ID                   : 2
+INPUT                : 
+LBRACE               : 1 2 8
+LSQUARE              : 7
+MICROSERVICE         : 2
+NONCONFLICT          : 
+OPERATION            : 
+OUTPUT               : 
+RBRACE               : 1 2 8
+READ                 : 
+RSQUARE              : 7
+SYSTEM               : 1
+TABLE                : 
+TRANSACTIONS         : 8
+TYPE                 : 
+WRITE                : 
+error                : 
+
+Nonterminals, with rules where they appear
+
+column_list          : 7
+empty                : 9
+endpoint             : 3
+endpoint_table_operation_nonconflict : 2 3 4 5 6 7 8
+microservice         : 1
+non_conflict         : 6
+operation            : 5
+system               : 0
+table                : 4
+transaction_list     : 8
+
